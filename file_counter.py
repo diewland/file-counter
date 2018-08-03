@@ -14,7 +14,10 @@ class FileCounter(object):
         fo = open(self.path, 'r')
         v = fo.read()
         fo.close()
-        return int(v)
+        try:
+            return int(v)
+        except ValueError:
+            return 0
 
     def _save(self, counter):
         fo = open(self.path, 'w')
